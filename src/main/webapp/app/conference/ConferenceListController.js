@@ -97,7 +97,6 @@
             });
 
             modalInstance.result.then(function () {
-                console.log('delete em all');
                 ConferenceList.deleteAll().then(onSuccess, onFail);
                 function onSuccess(){
                     vm.rowCollection = [];
@@ -106,7 +105,6 @@
 
                 }
             }, function () {
-                console.log('modal dismissed');
             });
         }
     }
