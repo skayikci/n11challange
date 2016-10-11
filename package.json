@@ -1,0 +1,26 @@
+{
+  "name": "conference",
+  "version": "1.0.0",
+  "description": "n11 challange app",
+  "main": "index.js",
+  "cacheDirectories": [
+    "node_modules",
+    "src/main/webapp/lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "bash ./post_install.sh"
+  },
+  "keywords": [
+    "n11",
+    "conference",
+    "challange"
+  ],
+  "author": "serhat",
+  "license": "ISC",
+  "dependencies": {
+    "angular-ui-router": "^0.3.1",
+    "bower": "^1.7.9",
+    "ng-table": "^2.0.2"
+  }
+}
