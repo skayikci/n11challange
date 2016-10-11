@@ -9,9 +9,9 @@
         .module('app.util')
         .service('ConfirmModal', ConfirmModalService);
 
-    ConfirmModalService.$inject = ['$modal'];
+    ConfirmModalService.$inject = ['$uibModal'];
     /* @ngInject */
-    function ConfirmModalService($modal) {
+    function ConfirmModalService($uibModal) {
         var vm = this;
 
         vm.showModal = showModal;
@@ -57,7 +57,7 @@
                 }
             }
 
-            return $modal.open(tempDefs).result;
+            return $uibModal.open(tempDefs).result;
 
         }
 
