@@ -1,1 +1,1 @@
-web: java -Dserver.port=8080  -Dspring.data.mongodb.uri=mongodb://heroku_dlpldkhs:lv0un0jtg73vh1ekn1jfudejgh@ds033143.mlab.com:33143/heroku_dlpldkhs -jar target/Conference-0.0.1-SNAPSHOT.jar --spring.profiles.active=heroku
+web: java -Dspring.data.mongodb.uri=mongodb://heroku_dlpldkhs:lv0un0jtg73vh1ekn1jfudejgh@ds033143.mlab.com:33143/heroku_dlpldkhs -jar target/Conference-0.0.1-SNAPSHOT.jar --spring.profiles.active=heroku
