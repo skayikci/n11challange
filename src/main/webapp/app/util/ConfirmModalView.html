@@ -1,12 +1,10 @@
 <div class="modal-header">
-    <h3>{{vm.modalOptions.headerText}}</h3>
+    <h3 class="modal-title">Confirm</h3>
 </div>
 <div class="modal-body">
-    <p>{{vm.modalOptions.bodyText}}</p>
+    Are you sure you want to delete them all?
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn"
-            data-ng-click="vm.modalOptions.close()">{{vm.modalOptions.closeButtonText}}</button>
-    <button class="btn btn-primary"
-            data-ng-click="vm.modalOptions.ok();">{vm.{modalOptions.actionButtonText}}</button>
+    <button class="btn btn-warning" type="button" ng-click="ok()">OK</button>
+    <button class="btn btn-primary" type="button" ng-click="cancel()">CANCEL</button>
 </div>

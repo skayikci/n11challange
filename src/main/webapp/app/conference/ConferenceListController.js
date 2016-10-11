@@ -9,9 +9,9 @@
         .module('app.conference')
         .controller('ConferenceListController', ConferenceListController);
 
-    ConferenceListController.$inject = ['ConferenceList', 'ConfirmModal'];
+    ConferenceListController.$inject = ['ConferenceList', '$uibModal', '$scope'];
     /* @ngInject */
-    function ConferenceListController(ConferenceList, ConfirmModal) {
+    function ConferenceListController(ConferenceList, $uibModal, $scope) {
         var vm = this;
         vm.model = null;
         vm.isLoading = false;
@@ -34,7 +34,7 @@
         ];
         vm.addConference = addConference;
         vm.deleteItem = deleteItem;
-        vm.deleteAll = deleteAll;
+        vm.deleteItems = deleteItems;
 
         activate();
 
@@ -85,17 +85,28 @@
             }
         }
 
-        function deleteAll(){
-            var modalOptions = {
-                closeButtonText: 'Cancel',
-                actionButtonText: 'Delete',
-                headerText: 'Delete  All Items?',
-                bodyText: 'Are you sure you want to delete all items?'
-            };
+        function deleteItems(){
+            $scope.header = 'Header';
+            $scope.body = 'Header';
+            $scope.footer = 'Header';
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/util/ConfirmModalView.html',
+                controller: 'ConfirmModalController',
+                size: 'sm'
+            });
 
-            ConfirmModal.showModal({}, modalOptions).then(function (result) {
-                console.log(result);
-                //ConferenceList.deleteAll().then();
+            modalInstance.result.then(function () {
+                console.log('delete em all');
+                ConferenceList.deleteAll().then(onSuccess, onFail);
+                function onSuccess(){
+                    vm.rowCollection = [];
+                }
+                function onFail(){
+
+                }
+            }, function () {
+                console.log('modal dismissed');
             });
         }
     }

@@ -6,6 +6,6 @@
     'use strict';
 
     angular
-        .module('app.conference', ['ui.router']);
+        .module('app.conference', ['ui.router', 'ui.bootstrap', 'ui.bootstrap.tpls']);
 
 })(angular);
