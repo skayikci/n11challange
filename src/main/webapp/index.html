@@ -1,0 +1,38 @@
+<html ng-app="conferenceApp">
+<head>
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="lib/angular-smart-table/dist/smart-table.min.js"></script>
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link href="lib/bootstrap-css-only/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <script src="app/AppModule.js"></script>
+    <script src="app/conference/ConferenceListModule.js"></script>
+    <script src="app/agenda/AgendaModule.js"></script>
+    <script src="app/util/UtilModule.js"></script>
+    <script src="app/AppRoute.js"></script>
+    <script src="app/conference/ConferenceListRoute.js"></script>
+    <script src="app/agenda/AgendaRoute.js"></script>
+    <script src="app/conference/ConferenceListFactory.js"></script>
+    <script src="app/agenda/AgendaFactory.js"></script>
+    <script src="app/AppController.js"></script>
+    <script src="app/conference/ConferenceListController.js"></script>
+    <script src="app/agenda/AgendaController.js"></script>
+    <script src="app/util/ConfirmModalService.js"></script>
+    <style>.active { color: red; font-weight: bold }</style>
+    <title ng-bind="$state.current.data.pageTitle"></title>
+</head>
+
+<body ng-controller="AppController as vm">
+
+<ul class="nav nav-tabs nav-justified">
+    <li role="presentation" ng-class="{active: $state.includes('app.conference')}"><a ui-sref="app.conference" ui-sref-active="active">Add Item</a></li>
+    <li role="presentation" ng-class="{active: $state.includes('app.agenda')}"><a ui-sref="app.agenda" ui-sref-active="active">Agenda</a></li>
+</ul>
+<div ui-view="content" autoscroll="false"></div>
+
+<ui-view></ui-view>
+</body>
+</html>

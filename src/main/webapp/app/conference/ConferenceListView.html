@@ -1,0 +1,85 @@
+<div class="container-fluid">
+    <section class="container">
+        <div class="container-page">
+            <div class="col-md-6">
+                <h3 class="dark-grey">Enter Conference</h3>
+
+                <form name="form" ng-submit="form.$valid && vm.addConference()">
+                    <div class="form-group col-lg-12">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" id="name" ng-model="vm.model.name" required>
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label for="name">Duration:</label>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle col-lg-6" type="button"
+                                    data-toggle="dropdown">
+                                {{vm.model.duration || 'Please Select'}}
+                                <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li ng-repeat="item in vm.interval">
+                                    <a ng-click="vm.model.duration = item.time">
+                                        {{item.time}}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                         <span class="text-danger" ng-show="form.exampleLabel.$error.required">
+                    validation message
+                </span>
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <label></label>
+                        <button type="submit" class="btn btn-primary col-lg-3">Save</button>
+                        <button type="button" ng-click="vm.deleteAll"
+                                class="btn btn-danger col-lg-3">
+                            <i class="fa fa-times"></i> Delete All
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </section>
+    <input type="text" name="exampleLabel" ng-model="vm.model.duration" hidden required/>
+</div>
+
+<div class="container-fluid">
+    <section class="container">
+        <div class="container-page">
+            <div class="col-md-12">
+                <h3 class="dark-grey">List of conferences</h3>
+                <table st-table="{{vm.rowCollection}}" st-safe-src="{{vm.rowCollection}}" class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th lr-drag-src="headers" lr-drop-target="headers" ng-repeat="col in vm.columnsConfig"
+                            st-sort="{{col.map}}">{{col.label}}
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <input st-search="name" placeholder="Search Conference" class="input-sm form-control"
+                                   type="search"/>
+                        </th>
+                        <th colspan="4">
+                            <input st-search="duration" placeholder="Duration Search" class="input-sm form-control"
+                                   type="search"/>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="row in vm.rowCollection">
+                        <td ng-repeat="col in vm.columns">{{row[col]}}</td>
+                        <td>
+                            <button type="button" ng-click="vm.deleteItem(row);"
+                                    class="btn btn-sm btn-danger">
+                                <i class="fa fa-times"></i> Delete
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</div>

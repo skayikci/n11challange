@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row">
+        <div ng-hide="vm.data">Not created any agenda</div>
+        <div class="col-sm-4" ng-repeat="value in vm.data">
+
+            <ul>
+                <li ng-repeat="item in value.slots">{{item.conferenceName}} {{item.duration}}min</li>
+            </ul>
+        </div>
+    </div>
+</div>

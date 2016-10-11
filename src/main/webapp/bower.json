@@ -1,0 +1,11 @@
+{
+  "name": "conferenceApp",
+  "dependencies": {
+    "angular": "^1.5.2",
+    "bootstrap-css-only": "^3.3.6",
+    "angular-sanitize": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "angular-smart-table": "^2.1.8",
+    "angular-bootstrap": "^2.2.0"
+  }
+}
